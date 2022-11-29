@@ -3,6 +3,8 @@
 # Desc: Starter Script for Assignment 05
 # Change Log: (Who, When, What)
 # DBiesinger, 2030-Jan-01, Created File
+# MAlfi, 2022-11-11, Renamed file from CDInventory_starter.py to CDInventory.py
+# MAlfi, 2022-11-28, added functionality of deleting an entry, saving to .txt file, displaying data and modified data structure to list of dictionaries
 #------------------------------------------#
 
 # Declare variabls
@@ -24,10 +26,10 @@ while True:
     print()
 
     if strChoice == 'x':
-        # DONE - 5. Exit the program if the user chooses so
+        # Exit the program if the user chooses so
         break
     if strChoice == 'l':
-        # DONE - Add the functionality of loading existing data
+        # Load existing data
         pass
         objFile = open(strFileName,'r') # create .txt file
         for row in objFile:
@@ -35,8 +37,8 @@ while True:
             print (lstRow)
         objFile.close()
         pass
-    elif strChoice == 'a':  # no elif necessary, as this code is only reached if strChoice is not 'exit'
-        # 2. DONE - Add data to the table (2d-list) each time the user wants to add data
+    elif strChoice == 'a':
+        # Add data to the table (2d-list) each time the user wants to add data
         strID = input('Enter an ID: ')
         strTitle = input('Enter the CD\'s Title: ')
         strArtist = input('Enter the Artist\'s Name: ')
@@ -44,19 +46,19 @@ while True:
         dicRow = {'ID': intID, 'Title':strTitle, 'Artist':strArtist}       
         dicTbl.append(dicRow)
     elif strChoice == 'i':
-        # 3. DONE - Display the current data to the user each time the user wants to display the data
+        # Display the current data to the user each time the user wants to display the data
         print('ID, CD Title, Artist')
         for row in dicTbl:
             print(*row.values(), sep = ', ')
     elif strChoice == 'd':
-        # DONE - Add functionality of deleting an entry
+        # Delete an entry
         dicDelete = input('Enter ID you want to delete: ')
         dicDeleteInt = int(dicDelete)
         for row in dicTbl:
             if row['ID'] == dicDeleteInt:
                 dicTbl.remove(row)
     elif strChoice == 's':
-        # DONE - 4. Save the data to a text file CDInventory.txt if the user chooses so    
+        # Save the data to a text file CDInventory.txt if the user chooses so    
         objFile = open(strFileName, 'a')
         for row in dicTbl:
             strRow = str(row['ID'])+','+ row['Title']+','+ row['Artist']
