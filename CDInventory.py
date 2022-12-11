@@ -61,7 +61,7 @@ while True:
         objFile = open(strFileName, 'a')
         for row in dicTbl:
             strRow = str(row['ID'])+','+ row['Title']+','+ row['Artist']
-            strRow = strRow[:-1] + '\n'
+            strRow = strRow + '\n'
             objFile.write(strRow)
         objFile.close()
     else:
