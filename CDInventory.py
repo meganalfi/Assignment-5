@@ -32,6 +32,8 @@ while True:
         objFile = open(strFileName,'r') # create .txt file
         for row in objFile:
             lstRow = row.strip().split(',')
+            dicRow = {'ID': int(lstRow[0]), 'Title': lstRow[1], 'Artist': lstRow[2]}       
+            dicTbl.append(dicRow) 
             print (lstRow)
         objFile.close()
     elif strChoice == 'a':
