@@ -7,11 +7,10 @@
 # MAlfi, 2022-11-28, added functionality of deleting an entry, saving to .txt file, displaying data and modified data structure to list of dictionaries
 #------------------------------------------#
 
-# Declare variabls
+# Declare variables
 
 strChoice = '' # User input
 dicTbl = []  # list of lists to hold data
-# TODO replace list of lists with list of dicts
 dicRow = {}  # dictionary of data row
 strFileName = 'CDInventory.txt'  # data storage file
 objFile = None  # file object
@@ -30,13 +29,11 @@ while True:
         break
     if strChoice == 'l':
         # Load existing data
-        pass
         objFile = open(strFileName,'r') # create .txt file
         for row in objFile:
             lstRow = row.strip().split(',')
             print (lstRow)
         objFile.close()
-        pass
     elif strChoice == 'a':
         # Add data to the table (2d-list) each time the user wants to add data
         strID = input('Enter an ID: ')
@@ -67,4 +64,3 @@ while True:
         objFile.close()
     else:
         print('Please choose either l, a, i, d, s or x!')
-
